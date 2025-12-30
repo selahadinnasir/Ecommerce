@@ -9,9 +9,15 @@ import {
   updateUserProfile,
   updatePassword,
   updateUserRole,
+  forgotPassword,
+  resetPassword,
 } from '../controllers/userController.js';
 
 const router = express.Router();
+
+// password rest
+router.post('/forgot-password', forgotPassword);
+router.post('/reset-password/:token', resetPassword);
 
 // User profile routes
 router

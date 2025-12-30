@@ -7,6 +7,7 @@ import { setCart } from '../store/slices/cartSlice';
 import { setWishlist } from '../store/slices/wishlistSlice';
 import { useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -69,34 +70,56 @@ const Login = () => {
         onSubmit={handleSubmit}
         className="w-full max-w-md bg-white rounded-2xl shadow-lg border border-gray-200 p-8"
       >
+        {/* Header */}
         <h2 className="text-3xl font-bold text-gray-900 text-center mb-2">
           Welcome back
         </h2>
-
         <p className="text-gray-500 text-center mb-8">Login to your account</p>
 
+        {/* Inputs */}
         <div className="space-y-5">
-          <input
-            type="email"
-            placeholder="Email address"
-            className="w-full rounded-lg border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black"
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-          />
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Email
+            </label>
+            <input
+              type="email"
+              placeholder="you@example.com"
+              className="w-full rounded-lg border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black"
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+            />
+          </div>
 
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-full rounded-lg border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black"
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
-          />
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Password
+            </label>
+            <input
+              type="password"
+              placeholder="••••••••"
+              className="w-full rounded-lg border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black"
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
+            />
+          </div>
         </div>
 
+        {/* Button */}
         <button
           disabled={loading}
           className="mt-8 w-full rounded-lg bg-black py-3 text-white font-medium hover:bg-gray-800 transition disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {loading ? 'Logging in...' : 'Login'}
         </button>
+
+        {/* Footer */}
+        <div className="mt-4 text-center">
+          <Link
+            to="/forgot-password"
+            className="text-sm text-gray-600 hover:text-black transition"
+          >
+            Forgot password?
+          </Link>
+        </div>
       </form>
     </div>
   );

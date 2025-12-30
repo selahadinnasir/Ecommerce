@@ -22,6 +22,12 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    resetPasswordToken: {
+      type: String,
+    },
+    resetPasswordExpire: {
+      type: Date,
+    },
   },
   {
     timestamps: true, // Automatically create createdAt and updatedAt

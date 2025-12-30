@@ -21,6 +21,8 @@ import AdminProducts from './pages/admin/AdminProducts';
 import AdminOrders from './pages/admin/AdminOrders';
 import AdminUsers from './pages/admin/AdminUsers';
 import OrderDetails from './pages/OrderDetails';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,8 @@ const router = createBrowserRouter([
       { path: '/register', element: <Register /> },
       { path: '/products', element: <Products /> },
       { path: '/products/:id', element: <ProductDetails /> },
+      { path: 'forgot-password', element: <ForgotPassword /> },
+      { path: 'reset-password/:token', element: <ResetPassword /> },
       {
         path: '/wishlist',
         element: (

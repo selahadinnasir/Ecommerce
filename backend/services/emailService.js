@@ -21,6 +21,7 @@ export const sendEmail = async ({ to, subject, text, html }) => {
     text,
     html,
   });
+  // console.log(' from email server', info);
 };
 
 // ----- Sample Emails -----
