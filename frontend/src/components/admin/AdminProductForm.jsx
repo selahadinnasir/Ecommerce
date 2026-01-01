@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import API from '../../services/api';
+import { toast } from 'react-hot-toast';
 
 const AdminProductForm = ({ product, onClose, onSuccess }) => {
   const [form, setForm] = useState({
@@ -16,8 +17,10 @@ const AdminProductForm = ({ product, onClose, onSuccess }) => {
 
     if (product) {
       await API.put(`/products/${product._id}`, form);
+      toast.success('Product Updated successfully');
     } else {
       await API.post('/products', form);
+      toast.success('Product Added successfully');
     }
 
     onSuccess();
