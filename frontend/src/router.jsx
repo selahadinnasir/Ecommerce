@@ -99,47 +99,20 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-
-      {
-        path: '/admin',
-        element: (
-          <AdminRoute>
-            <AdminLayout>
-              <AdminDashboard />
-            </AdminLayout>
-          </AdminRoute>
-        ),
-      },
-      {
-        path: '/admin/products',
-        element: (
-          <AdminRoute>
-            <AdminLayout>
-              <AdminProducts />
-            </AdminLayout>
-          </AdminRoute>
-        ),
-      },
-      {
-        path: '/admin/orders',
-        element: (
-          <AdminRoute>
-            <AdminLayout>
-              <AdminOrders />
-            </AdminLayout>
-          </AdminRoute>
-        ),
-      },
-      {
-        path: '/admin/users',
-        element: (
-          <AdminRoute>
-            <AdminLayout>
-              <AdminUsers />
-            </AdminLayout>
-          </AdminRoute>
-        ),
-      },
+    ],
+  },
+  {
+    path: '/admin',
+    element: (
+      <AdminRoute>
+        <AdminLayout />
+      </AdminRoute>
+    ),
+    children: [
+      { index: true, element: <AdminDashboard /> },
+      { path: 'products', element: <AdminProducts /> },
+      { path: 'orders', element: <AdminOrders /> },
+      { path: 'users', element: <AdminUsers /> },
     ],
   },
 ]);

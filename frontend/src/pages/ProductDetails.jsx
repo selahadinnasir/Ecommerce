@@ -30,7 +30,6 @@ const ProductDetails = () => {
 
   const { items: wishlistItems } = useSelector((state) => state.wishlist);
 
-  console.log('ish items', wishlistItems);
   if (isLoading)
     return <p className="p-10 text-center text-gray-500">Loading product…</p>;
 

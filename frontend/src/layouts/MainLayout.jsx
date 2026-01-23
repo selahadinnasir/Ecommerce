@@ -22,10 +22,10 @@ const MainLayout = () => {
         ]);
 
         dispatch(
-          setCart({ userId: user._id, cartItems: cartRes.data.cartItems })
+          setCart({ userId: user._id, cartItems: cartRes.data.cartItems }),
         );
         dispatch(
-          setWishlist({ userId: user._id, items: wishlistRes.data.items })
+          setWishlist({ userId: user._id, items: wishlistRes.data.items }),
         );
       } catch (error) {
         console.error('Failed to load cart/wishlist', error);
@@ -37,11 +37,13 @@ const MainLayout = () => {
 
   return (
     <>
-      <Navbar />
-      <main className="min-h-screen">
-        <Outlet />
-      </main>
-      <Footer />
+      <div>
+        <Navbar />
+        <main className="min-h-screen">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </>
   );
 };

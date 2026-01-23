@@ -9,7 +9,6 @@ const ForgotPassword = () => {
     e.preventDefault();
     const res = await API.post('/users/forgot-password', { email });
     setMessage(`${res.data.message}`);
-    // console.log('res User forgot', res.data.User);
   };
 
   return (

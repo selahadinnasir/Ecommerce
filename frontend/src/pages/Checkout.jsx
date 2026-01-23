@@ -26,7 +26,6 @@ const Checkout = () => {
   const totalPrice = itemsPrice + shippingPrice + taxPrice;
 
   const placeOrderHandler = async () => {
-    console.log('orders', items);
     try {
       setLoading(true);
 
@@ -49,7 +48,7 @@ const Checkout = () => {
       };
 
       const { data } = await API.post('/orders', {
-        user: user._id, // from Redux auth
+        user: user._id,
         orderItems,
         shippingAddress,
         paymentMethod: 'Stripe',

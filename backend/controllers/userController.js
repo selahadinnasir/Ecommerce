@@ -152,7 +152,6 @@ export const resetPassword = async (req, res) => {
   const { token } = req.params;
   const { password } = req.body;
 
-  console.log('rest token', token, 'pass', password);
   // Hash token to match DB
   const hashedToken = crypto.createHash('sha256').update(token).digest('hex');
 
@@ -160,7 +159,6 @@ export const resetPassword = async (req, res) => {
     resetPasswordToken: hashedToken,
     resetPasswordExpire: { $gt: Date.now() },
   });
-  console.log('user ', user);
 
   if (!user) {
     return res.status(400).json({

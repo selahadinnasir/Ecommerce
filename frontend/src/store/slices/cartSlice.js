@@ -8,8 +8,6 @@ const initialState = {
     : [],
 };
 
-console.log('cartSlice initialState:', initialState.items);
-
 // Save cart to localStorage helper
 const saveCart = (userId, items) => {
   if (!userId) return;

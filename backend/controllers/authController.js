@@ -15,6 +15,7 @@ const generateToken = (id) => {
 // @access  Public
 export const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
+  console.log('regi route', req.body);
 
   try {
     // Check if user exists
@@ -78,7 +79,6 @@ export const loginUser = async (req, res) => {
       token: generateToken(user._id),
     });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: 'Server error' });
   }
 };

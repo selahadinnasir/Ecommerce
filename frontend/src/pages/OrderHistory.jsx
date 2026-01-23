@@ -16,7 +16,7 @@ const OrderHistory = () => {
   if (isLoading) return <p className="p-6">Loading orders...</p>;
 
   return (
-    <div className="max-w-5xl mx-auto p-6">
+    <div className="max-w-5xl overflow-auto mx-auto p-6">
       <h2 className="text-xl font-semibold mb-4">My Orders</h2>
       {orders.length === 0 ? (
         <p>No orders found.</p>

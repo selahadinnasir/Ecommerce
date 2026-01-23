@@ -15,9 +15,6 @@ const Cart = () => {
   const authUser = user || {};
 
   const { items } = useSelector((state) => state.cart);
-  // const items = Array.isArray(cart?.items) ? cart.items : [];
-
-  console.log('items', items);
 
   useEffect(() => {
     API.post('/cart', { cartItems: items });
@@ -27,8 +24,6 @@ const Cart = () => {
     (sum, item) => sum + item?.price * item?.quantity,
     0
   );
-
-  console.log('cart Itmes from redux', items);
 
   if (items.length === 0) {
     return (

@@ -5,7 +5,6 @@ import { logout } from '../store/slices/authSlice';
 // Create a reusable Axios instance with base configuration
 const API = axios.create({
   baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
-  // baseURL: 'http://localhost:5000/api',
   withCredentials: true, // allows cookies if backend uses them
 });
 

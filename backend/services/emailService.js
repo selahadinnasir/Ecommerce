@@ -1,27 +1,42 @@
 // services/emailService.js
+import { Resend } from 'resend';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 dotenv.config();
 
 // Create transporter
-const transporter = nodemailer.createTransport({
-  host: process.env.MAIL_HOST,
-  port: process.env.MAIL_PORT,
-  auth: {
-    user: process.env.MAIL_USER,
-    pass: process.env.MAIL_PASS,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+// Nodemailer (fallback / SMTP)
+let transporter;
+if (process.env.EMAIL_PROVIDER === 'smtp') {
+  transporter = nodemailer.createTransport({
+    host: process.env.MAIL_HOST,
+    port: process.env.MAIL_PORT,
+    auth: {
+      user: process.env.MAIL_USER,
+      pass: process.env.MAIL_PASS,
+    },
+  });
+}
 
 export const sendEmail = async ({ to, subject, text, html }) => {
-  await transporter.sendMail({
-    from: '"E-commerce App" <no-reply@example.com>',
-    to,
-    subject,
-    text,
-    html,
-  });
-  // console.log(' from email server', info);
+  if (process.env.EMAIL_PROVIDER === 'resend') {
+    await resend.emails.send({
+      from: process.env.MAIL_FROM,
+      to,
+      subject,
+      html: html || `<p>${text}</p>`,
+    });
+  } else {
+    await transporter.sendMail({
+      from: process.env.MAIL_FROM,
+      to,
+      subject,
+      text,
+      html,
+    });
+  }
 };
 
 // ----- Sample Emails -----

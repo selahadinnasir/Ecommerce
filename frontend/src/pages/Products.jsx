@@ -15,8 +15,6 @@ const fetchProducts = async (page, keyword) => {
     },
   });
 
-  console.log('backend res', res.data);
-
   return res.data;
 };
 
@@ -42,8 +40,6 @@ const Products = () => {
     queryFn: () => fetchProducts(page, debouncedKeyword),
     keepPreviousData: true,
   });
-
-  console.log('data', data);
 
   if (isLoading)
     return (

@@ -16,23 +16,32 @@ const AdminDashboard = () => {
   if (isLoading) return <p>Loading dashboard...</p>;
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-6">Dashboard</h1>
+    <div className="w-full px-4 sm:px-6 lg:px-8">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6">Dashboard</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white p-4 shadow rounded">
-          <p className="text-gray-500">Users</p>
-          <p className="text-2xl font-bold">{data.usersCount}</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Users */}
+        <div className="bg-white rounded-xl shadow-sm border p-6">
+          <p className="text-sm text-gray-500 mb-1">Total Users</p>
+          <p className="text-3xl font-semibold text-gray-900">
+            {data.usersCount}
+          </p>
         </div>
 
-        <div className="bg-white p-4 shadow rounded">
-          <p className="text-gray-500">Orders</p>
-          <p className="text-2xl font-bold">{data.ordersCount}</p>
+        {/* Orders */}
+        <div className="bg-white rounded-xl shadow-sm border p-6">
+          <p className="text-sm text-gray-500 mb-1">Total Orders</p>
+          <p className="text-3xl font-semibold text-gray-900">
+            {data.ordersCount}
+          </p>
         </div>
 
-        <div className="bg-white p-4 shadow rounded">
-          <p className="text-gray-500">Revenue</p>
-          <p className="text-2xl font-bold">${data.totalRevenue}</p>
+        {/* Revenue */}
+        <div className="bg-white rounded-xl shadow-sm border p-6">
+          <p className="text-sm text-gray-500 mb-1">Total Revenue</p>
+          <p className="text-3xl font-semibold text-gray-900">
+            ${data.totalRevenue}
+          </p>
         </div>
       </div>
     </div>

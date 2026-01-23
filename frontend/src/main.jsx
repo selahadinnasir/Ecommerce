@@ -14,7 +14,6 @@ import { HelmetProvider } from 'react-helmet-async';
 
 const queryClient = new QueryClient();
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
-console.log('stripeKey', stripePromise);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

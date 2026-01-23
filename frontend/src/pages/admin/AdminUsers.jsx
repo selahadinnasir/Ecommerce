@@ -56,7 +56,7 @@ const AdminUsers = () => {
       <h1 className="text-2xl font-semibold mb-6">User Management</h1>
 
       <div className="overflow-x-auto rounded-lg shadow border bg-white">
-        <table className="w-full text-sm">
+        <table className="table-auto min-w-full text-sm md:text-xl   md:min-w-[700px]">
           <thead className="bg-gray-100 text-gray-700">
             <tr>
               <th className="p-3 text-left">Name</th>

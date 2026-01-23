@@ -8,7 +8,6 @@ const initialState = {
     : [],
 };
 
-console.log('user', user);
 // Save Wishlist to localStorage helper
 const saveWishlist = (userId, items) => {
   if (!userId) return;
