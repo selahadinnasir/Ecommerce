@@ -4,7 +4,6 @@ backend/node_modules/
 
 # Log files
 *.log
-
 # Text notes
 *.txt
 
@@ -15,3 +14,6 @@ backend/.env
 # Build folders
 frontend/dist/
 frontend/build/
+
+# deloyment steps, and note
+deployment.md

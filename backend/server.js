@@ -43,7 +43,7 @@ app.use(helmet());
 // CORS Hardened
 app.use(
   cors({
-    origin: ['https://eccomerse-full-sa.vercel.app', 'http://localhost:5173'],
+    origin: ['https://eccomerse-full-sa.vercel.app', 'http://localhost:5173','http://localhost:8080'],
     credentials: true,
   })
 );
@@ -59,7 +59,7 @@ app.use('/api', limiter);
 // Test route
 app.get('/', (req, res) => {
   res.send('API is running...');
-  console.log('Stripe Key:', process.env.STRIPE_SECRET_KEY);
+  // console.log('Stripe Key:', process.env.STRIPE_SECRET_KEY);
 });
 
 // test Security middlewares
